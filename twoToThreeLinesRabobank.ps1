@@ -1,0 +1,1 @@
+Get-Content -WhatIf -replace "<?Pageflex pf_xft_ver="1"?>", ""
