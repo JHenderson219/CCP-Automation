@@ -6,3 +6,18 @@ Write-Host "Stuff"+$path
 ForEach ($file in get-ChildItem *.xft){
 Write-Host $_.BaseName
 }
+
+$path = "C:\Users\Pre-Press\testing"
+$xfts = (Get-ChildItem -path $($path))
+
+
+foreach ($xft in $xfts) {
+$replace = "<?Pageflex pf_xft_ver=`"1`"?> `r
+<_char> $($xft.Name) Branch</_char>  `r
+<_char>newlinechar</_char>"
+(Get-Content $xft.FullName).Replace("<?Pageflex pf_xft_ver=`"1`"?>", $replace) | Set-Content $xft.FullName
+Write-Host $xft
+}
+
+
+foreach ($xft in $xfts)
