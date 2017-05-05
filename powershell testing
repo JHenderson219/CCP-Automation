@@ -1,0 +1,8 @@
+ForEach ($file in get-ChildItem *.xft){
+$path =  (Get-Item $($_.Name).xft).BaseName
+Write-Host "Stuff"+$path
+}
+
+ForEach ($file in get-ChildItem *.xft){
+Write-Host $_.BaseName
+}
